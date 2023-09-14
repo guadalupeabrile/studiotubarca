@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "title": "STUDIO TU BARCA",
+  "tagline": "EL TIGRE BY",
+  "text": "WE AREN'T AFRAID TO BE DIFFERENT",
+  "video": "video/hola.mp4",
+  "image": "video/agency.png",
+  "buttons": [
+    {
+      "id": 1,
+      "text": "START A PROJECT",
+      "link": "!#",
+      "type": "btn-dark btn-circle"
+    }
+  ]
+}
