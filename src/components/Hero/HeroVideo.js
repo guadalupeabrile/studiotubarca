@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from "react";
 import useWindowSize from "../../helpers/GetWindowSize";
 import SliderButtons from "../../elements/SliderButtons/SliderButtons";
 
@@ -46,7 +46,7 @@ const HeroVideo = ({ data }) => {
       <div className="homepage-hero-module" style={{ height: size.height + "px" }}>
         <div className="video-container">
           <div className="filter"></div>
-          <video ref={videoRef} controls autoPlay loop className="fillWidth"
+          <video autoPlay loop className="fillWidth"
             src={require("../../assets/images/" + data.video)}
             type="video/mp4"
           />
