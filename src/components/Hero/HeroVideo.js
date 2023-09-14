@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useRef, useEffect } from 'react';
 import useWindowSize from "../../helpers/GetWindowSize";
 import SliderButtons from "../../elements/SliderButtons/SliderButtons";
 
 const HeroVideo = ({ data }) => {
   const size = useWindowSize();
 
+  // Ref para el elemento de video
+  const videoRef = useRef(null);
 
+  // Función para reproducir el video automáticamente
+  const playVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play()
+        .then(() => {
+          // El video se reprodujo correctamente
+        })
+        .catch(error => {
+          console.error('Error al reproducir el video:', error);
+        });
+    }
+  };
+
+  // Efecto para reproducir el video automáticamente después de montar el componente
+  useEffect(() => {
+    playVideo();
+  }, []); // El array vacío asegura que esto solo se ejecute una vez al montar el componente
 
 
   return (
@@ -27,7 +46,7 @@ const HeroVideo = ({ data }) => {
       <div className="homepage-hero-module" style={{ height: size.height + "px" }}>
         <div className="video-container">
           <div className="filter"></div>
-          <video autoPlay loop className="fillWidth"
+          <video ref={videoRef} controls autoPlay loop className="fillWidth"
             src={require("../../assets/images/" + data.video)}
             type="video/mp4"
           />
